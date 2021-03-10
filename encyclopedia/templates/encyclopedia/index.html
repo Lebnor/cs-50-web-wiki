@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-dark">All Pages</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <li>{{ entry }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
