@@ -12,12 +12,27 @@
             ul {
                 columns: 2;
             }
-           
+            .sidebar-color {
+                background-color: #f0f0f0;
+                height: 100vh;
+            }
+            div > h1 {
+                text-align: center;
+                padding-bottom: 0.5em;
+            }
+            @media only screen and (max-width: 990px) {
+                .sidebar-color {
+                height: fit-content;
+                }
+                .main {
+                    margin-bottom: 15px;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="row">
-            <div style="background-color: #f0f0f0;" class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-6">
+            <div class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-12">
                 <h2>Wiki</h2>
                 <form>
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
