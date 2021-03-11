@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link type="text/css"  href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
         <style>
+            body {
+                overflow-x: hidden;
+            }
             ul {
                 columns: 2;
             }
@@ -34,7 +37,8 @@
         <div class="row">
             <div class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-12">
                 <h2>Wiki</h2>
-                <form>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
                     <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
                 </form>
                 <div>

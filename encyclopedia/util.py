@@ -1,5 +1,5 @@
 import re
-
+import os
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 
@@ -32,8 +32,20 @@ def get_entry(title):
     """
     try:
         file_name = f"entries/{title}.md"            
-        f = default_storage.open(file_name)
-        data = f.read().decode("UTF-8")
+        old = open(file_name,  "r")
+        lines = old.readlines()
+        del lines[0]
+        old.close()
+        new_file = open("temp", "w+")
+        new_file.write("---")
+        for line in lines:
+            new_file.write(line)
+        
+        new_file = default_storage.open("temp")
+        data = new_file.read().decode("UTF-8")
+        new_file.close()
+        os.remove("temp")
         return data
+        # return new_file
     except FileNotFoundError:
         return None
