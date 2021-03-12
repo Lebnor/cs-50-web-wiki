@@ -67,12 +67,25 @@ def entry_page(request, entry):
 
 
 def edit(request, title):
+    if (request.method == "POST"):
+        form = EntryForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title'].lower()
+            content = form.cleaned_data['content']
+            html = markdown2.markdown(content)
+            util.save_entry(title, content)
+            return render(request, "encyclopedia/entry_page.html", {
+                "title": title.capitalize(),
+                "html": html,
+                "entries": util.list_entries()
+            })
     content = util.get_entry(title)
     print(content)
     return render(request, "encyclopedia/new.html", {
         "entries": util.list_entries(),
         "title": title,
-        "content":content
+        "content": content,
+        "edit": True
     })
 
 def new(request):

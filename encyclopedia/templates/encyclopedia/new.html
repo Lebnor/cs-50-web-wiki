@@ -10,6 +10,31 @@
 
     <h3 class="text-center border-bottom text-info py-4 mb-4">Create new entry</h3>
 
+    {% if edit %}
+    <form action="{% url 'edit' title=' ' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label aria-required="true" for="title" class="form-label">Title</label>
+          <input value="{{title}}" name="title" type="text" class="form-control" id="title" >
+        </div>
+
+        <div class="mb-3">
+        <label for="content" class="form-label">Use markup to enter the content</label>
+          <textarea name="content" style="height: 300px; width: 100%;" title="content" class="form-label" 
+          
+          placeholder="Entry's content..."
+          required
+          >{{content}}</textarea>
+        </div>
+
+        
+        <div class="text-center">
+            <button type="submit" class="text-center btn btn-outline-success">Submit</button>
+        </div>
+      </form>
+
+    {% else %}
+
     <form action="{% url 'new' %}" method="POST">
         {% csrf_token %}
         <div class="mb-3">
@@ -32,6 +57,7 @@
         </div>
       </form>
 
+    {% endif %}
 </div>
 
 
