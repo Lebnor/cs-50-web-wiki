@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="main  col-10 col-lg-5  mx-auto px-auto">
+<div class="main  col-10 col-lg-5  mx-auto">
 
 
     
@@ -15,8 +15,8 @@
     {% endif %}
 
     {% if title %} 
-    <div class="col-8 col-lg-5 col-md-4 mx-auto mb-5 text-center" >
-        <a href="{% url 'edit' title=title %}" class="text-white btn btn-info btn-block">Edit this entry</a>
+    <div class="col-8 col-lg-5 col-md-4 mx-auto mb-4 " >
+        <a href="{% url 'edit' title=title %}" class="btn btn-info btn-block">Edit this entry</a>
     </div>
     {% endif %}
 

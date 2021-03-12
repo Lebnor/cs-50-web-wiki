@@ -70,7 +70,7 @@ def edit(request, title):
     if (request.method == "POST"):
         form = EntryForm(request.POST)
         if form.is_valid():
-            title = form.cleaned_data['title'].lower()
+            title = form.cleaned_data['title']
             content = form.cleaned_data['content']
             html = markdown2.markdown(content)
             util.save_entry(title, content)

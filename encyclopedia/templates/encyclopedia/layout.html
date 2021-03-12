@@ -39,12 +39,25 @@
         </style>
     </head>
     <body>
+
+
+
+
+
+
+
+
+
+
+
+        <!--  -->
         <div class="row">
             <div class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-6">
                 <h2>Wiki</h2>
                 <form action="{% url 'index' %}" method="post">
                     {% csrf_token %}
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    <input required class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    <input type="submit" value="search" class="btn btn-outline-success">
                 </form>
                 <div>
                     <a href="{% url 'index' %}">Home</a>
@@ -63,7 +76,6 @@
                 {% endblock %}
 
             </div>
-
                 {% block body %}
                 {% endblock %}
 
