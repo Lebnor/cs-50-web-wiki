@@ -14,16 +14,18 @@
     
     <div class="row">
 
-        <div class="col-12">
+        <div class="col-12 text-start justify-content-start">
             
-            <p class="fs-1 text-dark">Did you mean:</p>
-            {% for term in terms %}
+            <p class="fs-1 text-dark text-start">Did you mean:</p>
 
-            <li>  <a href="{% url 'entry_page' entry=term  %}"> {{ term }} </a> </li>
-            
-            {% empty %}
-           <li> Couldn't find any related results </li>
-            {% endfor %}
+                {% for term in terms %}
+
+                <li>  <a href="{% url 'entry_page' entry=term  %}"> {{ term }} </a> </li>
+                
+                {% empty %}
+               <li> Couldn't find any related results </li>
+                {% endfor %}
+                
         </div>
     </div>
 

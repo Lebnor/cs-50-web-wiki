@@ -22,7 +22,12 @@ def save_entry(title, content):
     filename = f"entries/{title}.md"
     if default_storage.exists(filename):
         default_storage.delete(filename)
-    default_storage.save(filename, ContentFile(content))
+    
+    f = open(filename, "w")
+    f.write("# " + title)
+    f.write("\n\n")
+    f.write(content)
+    f.close()
 
 
 def get_entry(title):
@@ -31,13 +36,13 @@ def get_entry(title):
     entry exists, the function returns None.
     """
     try:
-        file_name = f"entries/{title}.md"            
+        file_name = f"entries/{title}.md"         
+        new_file = default_storage.open(file_name)   
         old = open(file_name,  "r")
         lines = old.readlines()
         del lines[0]
         old.close()
         new_file = open("temp", "w+")
-        new_file.write("---")
         for line in lines:
             new_file.write(line)
         

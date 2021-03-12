@@ -11,7 +11,7 @@
 <div class="">
     <h1 class="text-dark">All Pages</h1>
 
-    <ul>
+    <ul style="columns: 3; height: 100px; overflow-y: auto; overflow-x: hidden;">
         {% for entry in entries %}
             <li> <a href="{% url 'entry_page' entry=entry  %}"> {{ entry }}</a></li>
         {% endfor %}

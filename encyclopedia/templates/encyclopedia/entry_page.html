@@ -5,12 +5,25 @@
 {% endblock %}
 
 {% block content %}
-<div class="main  col-12 col-lg-6  mx-auto px-auto">
-    <h1 class="text-center"> {{ title }} </h1>
+<div class="main  col-10 col-lg-5  mx-auto px-auto">
 
-    <div class="pl-4">
-        {{ html|safe }}
 
+    
+    {% if title %}
+    <h1 class="text-center border-bottom border-info"> {{ title }} </h1>
+
+    {% endif %}
+
+    {% if title %} 
+    <div class="col-8 col-lg-5 col-md-4 mx-auto mb-5 text-center" >
+        <a href="{% url 'edit' title=title %}" class="text-white btn btn-info btn-block">Edit this entry</a>
     </div>
+    {% endif %}
+
+    <div class="p-2">
+        {{ html|safe }}
+    </div>
+
+  
 </div>
 {% endblock %}

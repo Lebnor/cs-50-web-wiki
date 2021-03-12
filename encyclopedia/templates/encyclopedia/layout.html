@@ -50,15 +50,15 @@
                     <a href="{% url 'index' %}">Home</a>
                 </div>
                 <div>
-                    Create New Page
+                   <a href="{% url 'new'  %}"> Create New Page</a>
                 </div>
                 <div>
-                    Random Page
+                    <a href="{% url 'random' %}">Random Page</a>
                 </div>
             
             </div>
 
-            <div class="main col-md-6 col-lg-3  col-sm-6 all-pages">
+            <div class="main col-md-6 col-lg-3 border-right  col-sm-6 all-pages">
                 {% block nav %}
                 {% endblock %}
 
