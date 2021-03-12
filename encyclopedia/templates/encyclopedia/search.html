@@ -1,0 +1,34 @@
+{% extends "encyclopedia/index.html" %}
+
+
+
+{% block content %}
+
+<div class="text-center col-12 col-lg-6">
+
+    <h3 class="border-bottom text-info py-4 ">Showing search results</h3>
+
+    <p class="pt-2 text-danger fs-1 fw-light">You searched for: <i> {{ search }} </i> </p>
+
+
+    
+    <div class="row">
+
+        <div class="col-12">
+            
+            <p class="fs-1 text-dark">Did you mean:</p>
+            {% for term in terms %}
+
+            <li>  <a href="{% url 'entry_page' entry=term  %}"> {{ term }} </a> </li>
+            
+            {% empty %}
+           <li> Couldn't find any related results </li>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

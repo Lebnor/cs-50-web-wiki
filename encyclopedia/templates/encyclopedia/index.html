@@ -4,7 +4,11 @@
     Encyclopedia
 {% endblock %}
 
-{% block body %}
+{% block nav %}
+
+
+
+<div class="">
     <h1 class="text-dark">All Pages</h1>
 
     <ul>
@@ -12,5 +16,7 @@
             <li> <a href="{% url 'entry_page' entry=entry  %}"> {{ entry }}</a></li>
         {% endfor %}
     </ul>
+    
+</div>
 
 {% endblock %}

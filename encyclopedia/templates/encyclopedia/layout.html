@@ -11,10 +11,9 @@
         <style>
             body {
                 overflow-x: hidden;
+                width: 100%;
             }
-            ul {
-                columns: 2;
-            }
+           
             .sidebar-color {
                 background-color: #f0f0f0;
                 height: 100vh;
@@ -23,19 +22,25 @@
                 text-align: center;
                 padding-bottom: 0.5em;
             }
+            .main {
+                height: 100vh;
+            }
             @media only screen and (max-width: 990px) {
-                .sidebar-color {
-                height: fit-content;
+                .sidebar-color, .main {
+                    height: 30vh;
+                    border-bottom: 1px ridge lightgrey;
                 }
-                .main {
-                    margin-bottom: 15px;
+                
+                .all-pages {
+                    background-color: #f0f0f0;
                 }
             }
+           
         </style>
     </head>
     <body>
         <div class="row">
-            <div class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-12">
+            <div class="p-5 main sidebar-color col-lg-3 col-md-6 col-sm-6">
                 <h2>Wiki</h2>
                 <form action="{% url 'index' %}" method="post">
                     {% csrf_token %}
@@ -50,15 +55,18 @@
                 <div>
                     Random Page
                 </div>
+            
+            </div>
+
+            <div class="main col-md-6 col-lg-3  col-sm-6 all-pages">
                 {% block nav %}
                 {% endblock %}
+
             </div>
-            <div class="pl-5 main col-lg-3 col-md-6 border-left border-right">
+
                 {% block body %}
                 {% endblock %}
-            </div>
-            <div style="text-align: start;" class="main col-12 col-lg-6  pl-5">
-                <h1 style="text-align: center;"> {{ title }} </h1>
+
                 {% block content %}
                 {% endblock %}
             </div>

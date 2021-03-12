@@ -43,16 +43,3 @@ textarea {
     margin-left: 50px;
     border-left: 1px ridge black;
 }
-
-ul {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .sidebar {
-        height: 10vh;
-        background-color: lightblue;
-    }
-  }

@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block content %}
-{{ html|safe }}
+<div class="main  col-12 col-lg-6  mx-auto px-auto">
+    <h1 class="text-center"> {{ title }} </h1>
+
+    <div class="pl-4">
+        {{ html|safe }}
+
+    </div>
+</div>
 {% endblock %}
