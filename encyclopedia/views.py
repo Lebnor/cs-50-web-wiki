@@ -34,20 +34,22 @@ def index(request):
                 return render(request, "encyclopedia/search.html", {
                     "search": search,
                     "terms": terms,
-                    "entries": entries
+                    "entries": entries,
+                    "exists": False
                 })
             else:
                 html = markdown2.markdown(entry)
             return render(request, "encyclopedia/entry_page.html", {
                 "title": search.capitalize(),
                 "html": html,
-                "entries": entries
+                "entries": entries,
+                "exists": True
             })
         else:
             return render(request, "encyclopedia/index.html", {
                 "title": search.capitalize(),
             })
-            
+
     return render(request, "encyclopedia/index.html", {
         "entries": entries
     })
@@ -57,7 +59,12 @@ def entry_page(request, entry):
     entry_exists = util.get_entry(entry)
     if not entry_exists:
         # display to user that this entry does not exist
-        html = "<h1>This entry does not exist!</h1>"
+        # html = "<h1>This entry does not exist!</h1>"
+        return render(request, "encyclopedia/entry_page.html", {
+            "title": entry.capitalize(),
+            "entries": util.list_entries(),
+            "exists": False
+        })
     else:
         # display HTML content from this .md entry
         html = markdown2.markdown(entry_exists)
@@ -65,7 +72,8 @@ def entry_page(request, entry):
     return render(request, "encyclopedia/entry_page.html", {
         "title": entry.capitalize(),
         "html": html,
-        "entries": util.list_entries()
+        "entries": util.list_entries(),
+        "exists": True
     })
 
 # edit an existing entry
@@ -81,7 +89,8 @@ def edit(request, title):
             return render(request, "encyclopedia/entry_page.html", {
                 "title": title.capitalize(),
                 "html": html,
-                "entries": util.list_entries()
+                "entries": util.list_entries(),
+                "exists": True
             })
     
     # load the form to edit an entry
@@ -118,7 +127,8 @@ def new(request):
             return render(request, "encyclopedia/entry_page.html", {
             "title": title.capitalize(),
             "html": content,
-            "entries": entries
+            "entries": entries,
+            "exists": True
         })
 
     return render(request, "encyclopedia/new.html", {

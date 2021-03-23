@@ -3,15 +3,12 @@ ul {
   columns: 2;
 }
 
-h1 {
-  padding: 40px;
-  margin: 10px;
-}
 textarea {
-  min-width: 200px;
+  height: 250px;
+  width: 100%;
 }
 
 .list-wrapper {
-  height: 100px;
+  height: 200px;
   overflow-y: scroll;
 }

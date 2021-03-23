@@ -8,14 +8,13 @@ New entry
 
 {% block content %}
 
-<div class="col-10 col-lg-5  mx-auto px-auto">
 
     <!-- header -->
     {% if edit %}
-    <h3 class="text-center border-bottom text-info py-4 mb-4">Edit entry</h3>
+    <h3 class="text-center border-bottom text-info pb-4 mb-4">Edit entry</h3>
     <form action="{% url 'edit' title=' ' %}" method="POST">
     {% else %}
-    <h3 class="text-center border-bottom text-info py-4 mb-4">Create new entry</h3>
+    <h3 class="text-center border-bottom text-info pb-4 mb-4">Create new entry</h3>
 
     <!-- form -->
     <form action="{% url 'new' %}" method="POST">
@@ -41,7 +40,6 @@ New entry
             <button type="submit" class="text-center btn btn-outline-success">Submit</button>
         </div>
       </form>
-    </div>
 
 
 

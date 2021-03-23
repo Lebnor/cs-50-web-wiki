@@ -9,13 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link type="text/css"  href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
         {% block head %}{% endblock %}
-        <style>
-            
-            
-           
         
-           
-        </style>
     </head>
     <body>
 
@@ -41,14 +35,17 @@
             
             </div>
 
-            <div class="main col-md-6 col-lg-3 border-right  col-sm-6 all-pages">
+            <div class="py-1 main col-md-6 col-lg-3 border-right  col-sm-6 all-pages">
                 {% block nav %}
                 {% endblock %}
 
             </div>
+            
+            <div class="py-1 main col-10 col-lg-5  mx-auto">
+            
                 {% block body %}
                 {% endblock %}
-
+            
                 {% block content %}
                 {% endblock %}
             </div>
