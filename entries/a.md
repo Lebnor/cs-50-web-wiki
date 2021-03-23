@@ -1,3 +1,0 @@
-# a
-
-Apple is a fruit

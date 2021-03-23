@@ -1,0 +1,17 @@
+ul {
+  column-count: 2;
+  columns: 2;
+}
+
+h1 {
+  padding: 40px;
+  margin: 10px;
+}
+textarea {
+  min-width: 200px;
+}
+
+.list-wrapper {
+  height: 100px;
+  overflow-y: scroll;
+}

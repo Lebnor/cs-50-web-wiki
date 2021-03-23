@@ -1,8 +1,16 @@
 {% extends "encyclopedia/layout.html" %}
 {% load static %}
+
+{% block head %}
+<link type="text/css"  href="{% static 'encyclopedia/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+
 {% block title %}
     Encyclopedia
 {% endblock %}
+
+
 
 {% block nav %}
 
@@ -11,12 +19,16 @@
 <div class="">
     <h1 class="text-dark">All Pages</h1>
 
-    <ul style="columns: 3; height: 100px; overflow-y: auto; overflow-x: hidden;">
+    <div class="list-wrapper">
         {% for entry in entries %}
-            <li> <a href="{% url 'entry_page' entry=entry  %}"> {{ entry }}</a></li>
+        <ul>
+            <li><a href="{% url 'entry_page' entry=entry %}"> {{ entry }}</a></li>
+        </ul>
         {% endfor %}
-    </ul>
     
+    </div>
 </div>
+
+
 
 {% endblock %}
